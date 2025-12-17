@@ -25,6 +25,14 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'favorites',
+    canActivate: [ageGuard],
+    loadComponent: () =>
+      import('./wishlist/feature/favorite/favorite.component').then(
+        (m) => m.FavoriteComponent
+      ),
+  },
+  {
     path: 'not_found',
     loadComponent: () =>
       import('./shared/layout/not-found/not-found.component').then(
