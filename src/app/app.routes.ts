@@ -25,14 +25,6 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'favorites',
-    canActivate: [ageGuard],
-    loadComponent: () =>
-      import('./wishlist/feature/favorite/favorite.component').then(
-        (m) => m.FavoriteComponent
-      ),
-  },
-  {
     path: 'not_found',
     loadComponent: () =>
       import('./shared/layout/not-found/not-found.component').then(
@@ -51,6 +43,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./search-result/search-result.component').then(
         (c) => c.SearchResultComponent
+      ),
+  },
+  {
+    path: 'test-fav',
+    loadComponent: () =>
+      import('./wishlist/feature/favorite/favorite.component').then(
+        (m) => m.FavoriteComponent
       ),
   },
 ];

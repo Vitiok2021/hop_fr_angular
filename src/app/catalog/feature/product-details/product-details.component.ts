@@ -16,11 +16,11 @@ import { UpdatePricePipe } from '../../utils/update-price.pipe';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { BigBasketButtonComponent } from '../../ui/big-basket-button/big-basket-button.component';
+import { WishlistService } from '../../../wishlist/data-access/wishlist.service';
 @Component({
   selector: 'app-product-details',
   standalone: true,
   imports: [
-    
     BreadcrumbComponent,
     UpdatePricePipe,
     ToastModule,
@@ -35,6 +35,9 @@ export class ProductDetailsComponent implements OnInit {
   private messageService = inject(MessageService);
   private router = inject(Router);
   readonly productStore = inject(ProductStore);
+
+  private wishlistService = inject(WishlistService);
+
   type = input.required<ProductType>();
   productId = input.required<string>();
   productData = this.productStore.productData;
@@ -46,6 +49,16 @@ export class ProductDetailsComponent implements OnInit {
     effect(() => {
       if (this.error()) this.router.navigate(['/not_found']);
     });
+  }
+  onToggleFavorite() {
+    const id = this.productData()?.id;
+    if (id) {
+      this.wishlistService.toggleFavorite(Number(id));
+    }
+  }
+  isFaforite(): boolean {
+    const id = this.productData()?.id;
+    return id ? this.wishlistService.isFavorite(Number(id)) : false;
   }
   onMoveProduct() {
     this.productStore.toggleCartItem().subscribe({

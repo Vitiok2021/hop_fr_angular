@@ -80,9 +80,14 @@
         buttonMode="big"
         (onClickButton)="onMoveProduct()"
       ></app-big-basket-button>
-      <button type="button" class="block product__add-to-fav">
+      <button
+        type="button"
+        class="block product__add-to-fav"
+        (click)="onToggleFavorite()"
+        [class.active]="isFaforite()"
+      >
         <span class="icon-heart"></span>
-        <span>Додати до обраного</span>
+        <span>{{ isFaforite() ? "В обраному" : "Додати до обраного" }}</span>
       </button>
     </div>
   </section>
