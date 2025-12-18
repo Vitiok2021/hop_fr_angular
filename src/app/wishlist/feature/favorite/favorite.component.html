@@ -2,8 +2,11 @@
 
 <ul>
   @for(id of favoriteIds(); track id){
-  <li>Товар з номером: {{ id }}</li>
+  <li>
+    Товар з номером: {{ id }}
+    <button (click)="removeItem(id)">[Видалити]</button>
+  </li>
   } @empty {
-  <li>Поки що нічого не обрано...</li>
+  <li>Ваш список порожній. Поверніться в магазин за покупками!</li>
   }
 </ul>

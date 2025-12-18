@@ -18,4 +18,8 @@ export class FavoriteComponent {
   private wishlistService = inject(WishlistService);
 
   favoriteIds = this.wishlistService.favoriteIds;
+
+  removeItem(id: number) {
+    this.wishlistService.toggleFavorite(id);
+  }
 }
