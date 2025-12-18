@@ -1,0 +1,13 @@
+.favorite-grid {
+  display: grid;
+  // Створює стільки колонок, скільки поміститься, мінімум 250px кожна
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 20px 0;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}

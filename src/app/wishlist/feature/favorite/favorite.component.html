@@ -1,12 +1,18 @@
-<h2>Мій список обраних ID:</h2>
+<h2>Мій список обраних:</h2>
 
-<ul>
-  @for(id of favoriteIds(); track id){
-  <li>
-    Товар з номером: {{ id }}
-    <button (click)="removeItem(id)">[Видалити]</button>
-  </li>
+<div
+  class="favorite-grid"
+  style="
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  "
+>
+  @for(product of favoriteProducts();track product.id){
+  <app-product-card [inputData]="product"> </app-product-card>
   } @empty {
-  <li>Ваш список порожній. Поверніться в магазин за покупками!</li>
+  <div class="empty-state">
+    <p>Тут поки порожньо. Добавте щось</p>
+  </div>
   }
-</ul>
+</div>
