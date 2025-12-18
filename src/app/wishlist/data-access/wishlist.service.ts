@@ -9,7 +9,7 @@ export class WishlistService {
     ? JSON.parse(localStorage.getItem('wishlist') || '[]')
     : [];
 
-  favoriteIds = signal<number[]>([]);
+  favoriteIds = signal<number[]>(this.initialIds);
 
   constructor() {
     effect(() => {
