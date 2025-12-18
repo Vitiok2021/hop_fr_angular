@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  effect,
+} from '@angular/core';
+import { WishlistService } from '../../data-access/wishlist.service';
 
 @Component({
   selector: 'app-favorite',
@@ -6,8 +12,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [],
   templateUrl: './favorite.component.html',
   styleUrl: './favorite.component.scss',
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FavoriteComponent {
+  private wishlistService = inject(WishlistService);
 
+  favoriteIds = this.wishlistService.favoriteIds;
 }

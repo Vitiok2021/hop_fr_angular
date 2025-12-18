@@ -27,7 +27,11 @@
       ><span
         class="header__icon icon icon-heart"
         [class.disable]="!authApiService.isAuth()"
-      ></span>
+      >
+        @if(wishlistCount()>0){
+        <span class="badge">{{ wishlistCount() }}</span>
+        }
+      </span>
     </a>
     <a
       [routerLink]="authApiService.isAuth() ? '/my_cabinet' : null"

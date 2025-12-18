@@ -56,7 +56,7 @@ export class ProductDetailsComponent implements OnInit {
       this.wishlistService.toggleFavorite(Number(id));
     }
   }
-  isFaforite(): boolean {
+  isFavorite(): boolean {
     const id = this.productData()?.id;
     return id ? this.wishlistService.isFavorite(Number(id)) : false;
   }

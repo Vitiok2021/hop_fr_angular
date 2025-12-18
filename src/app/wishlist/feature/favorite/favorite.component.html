@@ -1,1 +1,9 @@
-<p>favorite works!</p>
+<h2>Мій список обраних ID:</h2>
+
+<ul>
+  @for(id of favoriteIds(); track id){
+  <li>Товар з номером: {{ id }}</li>
+  } @empty {
+  <li>Поки що нічого не обрано...</li>
+  }
+</ul>

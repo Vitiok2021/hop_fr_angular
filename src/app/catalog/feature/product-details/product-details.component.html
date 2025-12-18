@@ -84,10 +84,10 @@
         type="button"
         class="block product__add-to-fav"
         (click)="onToggleFavorite()"
-        [class.active]="isFaforite()"
+        [class.active]="isFavorite()"
       >
         <span class="icon-heart"></span>
-        <span>{{ isFaforite() ? "В обраному" : "Додати до обраного" }}</span>
+        <span>{{ isFavorite() ? "В обраному" : "Додати до обраного" }}</span>
       </button>
     </div>
   </section>
