@@ -40,23 +40,12 @@ export class FavoriteComponent implements OnInit {
     const favIds = this.wishlistService.favoriteIds();
     const data = this.catalogDataStore.productData();
 
-    // console.log('ID в обраному:', favIds);
-    // console.log('Дані в Сторі:', data);
-
     if (!data || !data.content) {
-      // console.log('Стор порожній або немає поля content');
       return [];
     }
 
     return data.content.filter((product) =>
       favIds.includes(Number(product.id))
     );
-
-    // const filtered = data.content.filter((product) => {
-    //   return favIds.includes(Number(product.id));
-    // });
-
-    // console.log('Результат фільтрації:', filtered);
-    // return filtered;
   });
 }
